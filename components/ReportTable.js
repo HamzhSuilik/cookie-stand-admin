@@ -2,17 +2,22 @@ import styles from '../styles/Home.module.css'
 
 // 
 
-export default function Table({location_list,data,hours}) {
+export default function Table({location_list,data,hours,HandleDelete}) {
 
     const listHours = hours.map((hour) =>
         <th className={styles.th}>{hour}</th>
     );
 
-    // [1, 2, 3, 4].reduce((a, b) => a + b, 0)
+
+    
 
     const listContent = location_list.map((location,i) =>
         <tr className={styles.tr}>
-            <td>{location}</td>
+            <td>{location}<img onClick={
+                ()=>{
+                    HandleDelete(i)
+                }
+                } className={styles.image} src = "https://image.flaticon.com/icons/png/512/812/812853.png" alt = "" /></td>
             <td>{data[0][i]}</td>
             <td>{data[1][i]}</td>
             <td>{data[2][i]}</td>
@@ -29,6 +34,7 @@ export default function Table({location_list,data,hours}) {
             <td>{data[13][i]}</td>
             <td>{data[14][i]}</td>
         </tr>
+        
     );
 
    
