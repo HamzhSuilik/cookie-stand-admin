@@ -13,7 +13,7 @@ export default function Table({location_list,data,hours,HandleDelete}) {
 
     const listContent = location_list.map((location,i) =>
         <tr key={location.id} className={styles.tr}>
-            <td>{location}<img onClick={
+            <td>{location}<image onClick={
                 ()=>{
                     HandleDelete(i)
                 }
